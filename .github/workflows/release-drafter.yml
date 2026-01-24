@@ -23,10 +23,7 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      # (Optional) GitHub Action to assign labels to pull requests
-      # - uses: release-drafter/release-drafter@v6
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v4
 
       - name: Read Version
         id: version
