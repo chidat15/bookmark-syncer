@@ -1,6 +1,12 @@
-# 书签同步助手 / Bookmark Syncer
+<p align="center">
+  <img src="./packages/app/assets/icon.png" alt="Logo" width="80" height="80">
+</p>
 
-[English](#english) | [简体中文](#简体中文)
+<h1 align="center">书签同步助手 / Bookmark Syncer</h1>
+
+<p align="center">
+  <a href="#english">English</a> | <a href="#简体中文">简体中文</a>
+</p>
 
 ---
 
