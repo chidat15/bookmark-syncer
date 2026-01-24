@@ -71,4 +71,4 @@ pnpm build
 
 ### 📄 License
 
-MIT
+[CC BY-NC-SA 4.0](./LICENSE) - Non-commercial use only
