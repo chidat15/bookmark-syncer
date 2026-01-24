@@ -183,15 +183,53 @@ function SyncSettingsPage({ onBack }: { onBack: () => void }) {
   )
 }
 
-// 关于页面
+// 顶部引入 semver
+import semver from 'semver'
+// ... (existing imports)
+
+// ... (inside AboutPage component)
 function AboutPage({ onBack }: { onBack: () => void }) {
+  const [checking, setChecking] = useState(false)
+  const [updateAvailable, setUpdateAvailable] = useState<string | null>(null)
+  
+  // 获取当前版本 (从 package.json 或者 manifest 获取，这里暂时硬编码或者通过 props 传入)
+  // 注意：实际项目中建议通过构建工具注入版本号，或者从 manifest 读取
+  const currentVersion = '1.0.0' 
+
+  const checkUpdate = async () => {
+    setChecking(true)
+    try {
+      const res = await fetch('https://api.github.com/repos/Yueby/bookmark-syncer/releases/latest')
+      const data = await res.json()
+      // GitHub release tag might be "v1.0.1", semver needs "1.0.1"
+      const remoteVersion = data.tag_name?.replace(/^v/, '')
+      
+      if (remoteVersion && semver.gt(remoteVersion, currentVersion)) {
+        setUpdateAvailable(data.tag_name)
+        toast.success(`发现新版本 ${data.tag_name}`, {
+          description: '点击按钮前往下载',
+          action: {
+            label: '去下载',
+            onClick: () => window.open(data.html_url, '_blank')
+          }
+        })
+      } else {
+        toast.info('当前已是最新版本')
+      }
+    } catch (e) {
+      toast.error('检查更新失败', { description: '请检查网络连接' })
+    } finally {
+      setChecking(false)
+    }
+  }
+
   return (
     <div>
       <SubPageHeader title="关于" onBack={onBack} />
       <div className="space-y-4">
         <div className="p-4 rounded-xl bg-secondary/30 text-center">
           <h3 className="text-xl font-bold text-foreground">Bookmark Syncer</h3>
-          <p className="text-sm text-muted-foreground mt-1">v1.0.0</p>
+          <p className="text-sm text-muted-foreground mt-1">v{currentVersion}</p>
         </div>
         <div className="p-4 rounded-xl bg-secondary/30">
           <p className="text-sm text-muted-foreground">
@@ -203,6 +241,25 @@ function AboutPage({ onBack }: { onBack: () => void }) {
             支持 Chrome、Edge、Firefox 等基于 Chromium 和 Firefox 的浏览器。
           </p>
         </div>
+        
+        {updateAvailable ? (
+          <Button
+            className="w-full bg-green-600 hover:bg-green-700 text-white"
+            onClick={() => window.open(`https://github.com/Yueby/bookmark-syncer/releases/tag/${updateAvailable}`, '_blank')}
+          >
+            下载新版本 {updateAvailable}
+          </Button>
+        ) : (
+          <Button
+            className="w-full"
+            onClick={checkUpdate}
+            disabled={checking}
+          >
+            {checking ? (
+               <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> 检查中...</>
+            ) : '检查更新'}
+          </Button>
+        )}
       </div>
     </div>
   )
