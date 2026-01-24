@@ -6,7 +6,7 @@ on:
       - master
   # pull_request event is required only for autolabeler
   pull_request:
-    types: [opened, reopened, synchronized]
+    types: [opened, reopened, synchronize]
 
 permissions:
   contents: read
