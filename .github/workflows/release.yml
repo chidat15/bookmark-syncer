@@ -1,0 +1,50 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Extensions
+        run: pnpm build
+
+      - name: Package Chrome Extension
+        run: |
+          cd apps/chrome-extension/dist
+          zip -r ../../../bookmark-syncer-chrome-${{ github.ref_name }}.zip .
+
+      - name: Package Firefox Extension
+        run: |
+          cd apps/firefox-extension/dist
+          zip -r ../../../bookmark-syncer-firefox-${{ github.ref_name }}.zip .
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            bookmark-syncer-chrome-${{ github.ref_name }}.zip
+            bookmark-syncer-firefox-${{ github.ref_name }}.zip
+          generate_release_notes: true
