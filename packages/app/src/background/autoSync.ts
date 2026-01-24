@@ -116,49 +116,72 @@ async function executeAutoPull() {
   }
 }
 
+// 防抖定时器 Alarm 名称
+const DEBOUNCE_ALARM = "autoSyncDebounce";
+const DEBOUNCE_DELAY_MIN = 0.05; // 3秒约等于 0.05 分钟 (WebExtension Alarms 最小精度有限，但在 Chrome 中设置 when 可以精确到毫秒)
+
 /**
- * 触发防抖同步
+ * 触发防抖同步 (使用 Alarm 以防止 Service Worker 休眠导致 Timer 丢失)
  */
-function triggerDebouncedSync() {
+async function triggerDebouncedSync() {
   if (isRestoring) return;
 
-  if (debounceTimer) {
-    clearTimeout(debounceTimer);
-  }
+  // 清除旧的防抖闹钟（如果存在）
+  await browser.alarms.clear(DEBOUNCE_ALARM);
 
-  debounceTimer = setTimeout(() => {
-    debounceTimer = null;
-    executeUpload();
-  }, DEBOUNCE_DELAY);
+  // 创建新的防抖闹钟 (3秒后触发)
+  // 注意：Chrome 扩展对于 periodInMinutes 有限制，但对于 when (一次性) 通常允许短时间
+  await browser.alarms.create(DEBOUNCE_ALARM, {
+    when: Date.now() + 3000,
+  });
 }
 
 /**
- * 启动自动同步监听
+ * 处理防抖闹钟
+ */
+async function handleDebounceAlarm(alarm: browser.Alarms.Alarm) {
+  if (alarm.name !== DEBOUNCE_ALARM) return;
+
+  // 再次检查开关
+  const { autoSyncEnabled } = await getWebDAVConfig();
+  if (autoSyncEnabled) {
+    await executeUpload();
+  }
+}
+
+/**
+ * 启动自动同步监听 (现仅需确保逻辑就绪，监听器已在顶级注册)
  */
 export function startAutoSync() {
-  // 创建监听器
-  const onCreated = () => triggerDebouncedSync();
-  const onRemoved = () => triggerDebouncedSync();
-  const onChanged = () => triggerDebouncedSync();
-  const onMoved = () => triggerDebouncedSync();
-
-  // 添加监听器
-  browser.bookmarks.onCreated.addListener(onCreated);
-  browser.bookmarks.onRemoved.addListener(onRemoved);
-  browser.bookmarks.onChanged.addListener(onChanged);
-  browser.bookmarks.onMoved.addListener(onMoved);
-
-  // 保存引用以便移除
-  listeners = [
-    () => browser.bookmarks.onCreated.removeListener(onCreated),
-    () => browser.bookmarks.onRemoved.removeListener(onRemoved),
-    () => browser.bookmarks.onChanged.removeListener(onChanged),
-    () => browser.bookmarks.onMoved.removeListener(onMoved),
-  ];
-
-  // 启动时也检查一次更新
   checkCloudOnStartup();
 }
+
+/**
+ * 停止自动同步监听 (实际上 Service Worker 无法真正移除顶级监听，只能通过标记位控制，但此处保留接口)
+ */
+export function stopAutoSync() {
+  // 在 MV3 中，通常通过内部状态判断是否执行
+}
+
+// ==========================================
+// 顶级注册监听器 (确保 Service Worker 始终被唤醒)
+// ==========================================
+
+// 1. 书签事件监听
+const onBookmarkParams = () => triggerDebouncedSync();
+browser.bookmarks.onCreated.addListener(onBookmarkParams);
+browser.bookmarks.onRemoved.addListener(onBookmarkParams);
+browser.bookmarks.onChanged.addListener(onBookmarkParams);
+browser.bookmarks.onMoved.addListener(onBookmarkParams);
+
+// 2. 防抖闹钟监听 (复用 handleAlarm 逻辑或单独注册)
+browser.alarms.onAlarm.addListener((alarm) => {
+  if (alarm.name === DEBOUNCE_ALARM) {
+    handleDebounceAlarm(alarm);
+  }
+  // 注意：scheduledSync 的 handleAlarm 在下面注册，或者我们需要合并监听器？
+  // 由于 browser.alarms.onAlarm 可以有多个监听器，这里分开写没问题。
+});
 
 /**
  * 停止自动同步监听
