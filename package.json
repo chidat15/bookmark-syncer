@@ -1,0 +1,18 @@
+{
+  "name": "bookmark-syncer",
+  "version": "1.0.0",
+  "description": "基于 WebDAV 的现代化跨设备书签同步工具",
+  "private": true,
+  "scripts": {
+    "build": "pnpm build:chrome && pnpm build:firefox",
+    "build:chrome": "pnpm --filter @bookmark-syncer/chrome-extension build",
+    "build:firefox": "pnpm --filter @bookmark-syncer/firefox-extension build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.26.2",
+  "devDependencies": {
+    "@types/node": "^25.0.10"
+  }
+}

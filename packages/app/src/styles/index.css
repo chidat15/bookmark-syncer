@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Design Tokens (Light Mode: Clean & Bright) ===== */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71% 4%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+    
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 9% 46%;
+    
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    
+    --accent: 220 14% 96%;
+    --accent-foreground: 224 71% 4%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 239 84% 67%;
+    
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Dark Mode: Rich & Vibrant */
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+    
+    --card: 224 71% 7%;
+    --card-foreground: 213 31% 91%;
+    
+    --popover: 224 71% 7%;
+    --popover-foreground: 213 31% 91%;
+    
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 213 31% 91%;
+    
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 65%;
+    
+    --accent: 215 28% 17%;
+    --accent-foreground: 213 31% 91%;
+    
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 239 84% 67%;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body, html, #root {
+    @apply h-full w-full bg-background text-foreground antialiased;
+  }
+}
+
+/* ===== Component Styles ===== */
+@layer components {
+  .glass-panel {
+    @apply bg-card border border-border rounded-xl shadow-sm;
+  }
+  
+  .dark .glass-panel {
+    @apply bg-card/80 backdrop-blur-xl border-white/10;
+  }
+  
+  html.light .glass-panel {
+    @apply bg-white/90 backdrop-blur-xl border-black/5 shadow-lg;
+  }
+}
+
+/* ===== Global Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--muted-foreground) / 0.5);
+}
