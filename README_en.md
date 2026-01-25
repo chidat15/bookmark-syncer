@@ -9,6 +9,18 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/Yueby/bookmark-syncer/releases/latest">
+    <img src="https://img.shields.io/github/downloads/Yueby/bookmark-syncer/total?style=flat-square&logo=github" alt="Downloads">
+  </a>
+  <a href="https://github.com/Yueby/bookmark-syncer/releases/latest">
+    <img src="https://img.shields.io/github/v/release/Yueby/bookmark-syncer?style=flat-square&logo=github" alt="Release">
+  </a>
+  <a href="./LICENSE">
+    <img src="https://img.shields.io/github/license/Yueby/bookmark-syncer?style=flat-square" alt="License">
+  </a>
+</p>
+
+<p align="center">
   <a href="./README.md">简体中文</a>
 </p>
 
