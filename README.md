@@ -54,6 +54,8 @@
 
 #### Firefox
 
+**最低版本要求：Firefox 140+**
+
 1. 下载最新版本的 `bookmark-syncer-firefox-vX.X.X.xpi`（已签名）
 2. 拖拽 `.xpi` 文件到 Firefox 窗口
 3. 点击「添加」按钮确认安装
