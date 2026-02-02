@@ -36,12 +36,8 @@ const manifest = defineManifest({
 manifest.browser_specific_settings = {
   gecko: {
     id: "bookmark-syncer@example.com",
-    strict_min_version: "140.0", // 需要 140+ 才支持 data_collection_permissions
+    strict_min_version: "112.0", // Firefox 112+ 支持 manifest v3 和 background.type: "module"
   },
 };
-
-// data_collection_permissions 需要 Firefox 140+，必须是对象格式
-// @ts-expect-error Firefox-specific property
-manifest.browser_specific_settings.gecko.data_collection_permissions = {};
 
 export default manifest;
