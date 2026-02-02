@@ -1,6 +1,6 @@
 {
   "name": "bookmark-syncer",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A privacy-first bookmark sync extension based on WebDAV. Supports Chrome, Firefox, and Edge.",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "build:firefox": "pnpm --filter @bookmark-syncer/firefox-extension build",
     "package": "pnpm package:chrome && pnpm sign:firefox",
     "package:chrome": "pnpm build:chrome && cd apps/chrome-extension/dist && npx bestzip ../chrome-extension.zip * && cd ../../..",
-    "sign:firefox": "pnpm build:firefox && web-ext sign --channel=unlisted --source-dir=apps/firefox-extension/dist --api-key=$WEB_EXT_API_KEY --api-secret=$WEB_EXT_API_SECRET --artifacts-dir=apps/firefox-extension"
+    "sign:firefox": "pnpm build:firefox && dotenv -- web-ext sign --channel=unlisted --source-dir=apps/firefox-extension/dist --artifacts-dir=apps/firefox-extension"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
     "@types/node": "^25.0.10",
     "bestzip": "^2.2.1",
     "chrome-webstore-upload-cli": "^3.5.0",
+    "dotenv-cli": "^11.0.0",
     "web-ext": "^9.2.0"
   }
 }

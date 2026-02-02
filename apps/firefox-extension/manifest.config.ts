@@ -36,7 +36,10 @@ const manifest = defineManifest({
 manifest.browser_specific_settings = {
   gecko: {
     id: "bookmark-syncer@example.com",
-    strict_min_version: "112.0", // Firefox 112+ 支持 manifest v3 和 background.type: "module"
+    strict_min_version: "140.0", // Firefox 140+ 支持 data_collection_permissions
+    data_collection_permissions: {
+      required: ["none"], // 声明不收集任何数据
+    },
   },
 };
 
