@@ -45,12 +45,19 @@
 
 #### Chrome / Edge
 
+**扩展 ID：** `fpccfkjndkjiljfj`（固定，更新时不会变化）
+
 1. 下载最新版本的 `chrome-extension.zip`
 2. 解压到本地文件夹
 3. 打开 `chrome://extensions/`
 4. 开启「开发者模式」
 5. 点击「加载已解压的扩展程序」
 6. 选择解压后的文件夹
+
+**更新扩展：**
+- 下载新版本 zip，解压到**相同文件夹**（覆盖旧文件）
+- 在 `chrome://extensions/` 点击扩展卡片的「刷新」按钮
+- 扩展 ID 和所有数据都会保留
 
 #### Firefox
 
